@@ -13,7 +13,7 @@ mongoose.connect(mongoURI, {})
 
 
 const { login, signup } = require('./auth/auth');
-const { fetchData } = require('./fetch-data/route');
+const { fetchData, downloadConf } = require('./fetch-data/route');
 
 const app = express();
 const port = 3000;
@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 app.post('/login-auth', cacher, login);
 app.post('/signup-auth', cacher, signup);
 app.post('/fetch-data', cacher, fetchData)
+app.get('/download-conf', cacher, downloadConf)
 
 app.listen(port, () => {
    console.log(`Server listening on port ${port}`);
