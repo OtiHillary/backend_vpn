@@ -216,7 +216,7 @@ async function mailFromAdmin (req, res) {
 async function googleOAuthCallback(req, res) {
    const code = req.query.code; // Authorization code from Google
    const clientId = '588057669834-i9aa7c62qqg7a7jqs5ugapf1lfoi883n.apps.googleusercontent.com';
-   const clientSecret = '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';
+   const clientSecret = process.env.SECRET;
    const redirectUri = 'https://dashboard.techdispatch.us/api/auth/google/callback';
 
    try {
